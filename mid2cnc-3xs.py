@@ -125,7 +125,6 @@ def main(argv):
 
     
     FILE.write ("G21\n")            # Set units to metric (metric ftw!)
-    FILE.write ("G90\n")
     FILE.write("G00 X0 Y0 Z0\n")    # Home
 
 
