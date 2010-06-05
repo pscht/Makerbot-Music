@@ -187,7 +187,7 @@ def main(argv):
 #            print("sum of pos. x-distance is: %.10F, while sum of neg. x-distance is: %.10F\n" % (xposdist, xnegdist))
 #            print("difference is: %.10F\n" % (xposdist+xnegdist))
 
-            x = x + ((distance_xyz[0] * x_dir))/25.4
+            x = ((distance_xyz[0] * x_dir))/25.4
             if x >= 0: 
                 global xposdist
                 xposdist = xposdist + x
@@ -195,13 +195,13 @@ def main(argv):
                 global xnegdist
                 xnegdist = xnegdist + x
 
-            if (xposdist+xnegdist) > 30:
+            if (xposdist+xnegdist) > 10:
                 x_dir = -1
 #                print("had to turn directions...\n")
-            if (xposdist+xnegdist) <= 30:
+            if (xposdist+xnegdist) <= 10:
                 x_dir = 1
 
-            y = y + ((distance_xyz[1] * y_dir))/25.4
+            y = ((distance_xyz[1] * y_dir))/25.4
             if y >= 0: 
                 global yposdist
                 yposdist = yposdist + y
@@ -213,7 +213,7 @@ def main(argv):
             if (yposdist+ynegdist) <= 20:
                 y_dir = 1
                 
-            z = (z + (distance_z * z_dir))
+            z = ((distance_z * z_dir))
             if z >= 0: 
                 global zposdist
                 zposdist = zposdist + z
@@ -253,7 +253,7 @@ def main(argv):
                 print "Warning: tried to turn off note that wasn't on!"
 
 
-    FILE.write("G01 X0 Y0 Z0 F1000\n")
+#    FILE.write("G01 X0 Y0 Z0 F1000\n")
     
 if __name__ == "__main__":
     main(sys.argv)
